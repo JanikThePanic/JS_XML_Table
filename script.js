@@ -45,6 +45,8 @@ function loadTable(xml) {
     }
     // sets the html inside the empty table we made to be the great table varible we just made
     document.getElementById("demo").innerHTML = table;
+    // by default sort the table by name
+    sortTable(0);
 }
 
 // search function. the search bar searches through name and description
