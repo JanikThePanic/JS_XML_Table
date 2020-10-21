@@ -25,22 +25,21 @@ function loadXML() {
 
 // function that loops through the data and spins it into the html. required the "this" from the request made above
 function loadTable(xml) {
-    var i; // current row
     var file = xml.responseXML; // js thingy, its todo witht he request
     var table=""; // the varible that will hold the data with its needed html elements
-    var x = file.getElementsByTagName("resource"); // picks out just the resources aka "<resource>"
+    var pulledData = file.getElementsByTagName("resource"); // picks out just the resources aka "<resource>"
 
     // loops through all <resource>'s and addes them to the great table varible
-    for (i = 0; i < x.length; i++) {
+    for (i = 0; i < pulledData.length; i++) {
         // addes the table row html tag, and table cell tag
         // the getElements then addes the each info bit to a coloum so to put it
         // lastly, there are a ending tags added
         table += "<tr><td>" +
-        x[i].getElementsByTagName("title")[0].childNodes[0].nodeValue +
+        pulledData[i].getElementsByTagName("title")[0].childNodes[0].nodeValue +
         "</td><td>" +
-        x[i].getElementsByTagName("description")[0].childNodes[0].nodeValue +
+        pulledData[i].getElementsByTagName("description")[0].childNodes[0].nodeValue +
         "</td><td>" +
-        x[i].getElementsByTagName("catagory")[0].childNodes[0].nodeValue +
+        pulledData[i].getElementsByTagName("catagory")[0].childNodes[0].nodeValue +
         "</td></tr>";
     }
     // sets the html inside the empty table we made to be the great table varible we just made
